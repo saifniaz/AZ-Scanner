@@ -4,14 +4,27 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import org.opencv.android.OpenCVLoader;
 
 public class Picture extends AppCompatActivity {
 
     Button check;
     ImageView picture;
+
+    private static final String TAG = "OpenCv";
+
+    static {
+        if(!OpenCVLoader.initDebug()){
+            Log.d(TAG, "Opencv not loaded");
+        }else{
+            Log.d(TAG, "Opencv loaded successfully");
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
