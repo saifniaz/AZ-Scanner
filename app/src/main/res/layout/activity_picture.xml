@@ -39,7 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/process"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:onClick="Process"/>
 
         <Button
             android:id="@+id/finish"

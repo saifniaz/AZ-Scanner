@@ -2,6 +2,7 @@ package com.saifniaz.az.azscanner;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.net.Uri;
@@ -87,8 +88,14 @@ public class MainActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap bitmap = (Bitmap) extras.get("data");
             image.setImageBitmap(bitmap);
-        }else if(resultCode == RESULT_OK && requestCode == 3){
-        Log.i("Message", "It works");
-    }
+        }else if(resultCode == 3 && requestCode == 3){
+
+            byte[] ByteArray = data.getByteArrayExtra("picture");
+
+            Bitmap imageBitmap = BitmapFactory.decodeByteArray(ByteArray, 0 , ByteArray.length);
+
+            image.setImageBitmap(imageBitmap);
+
+        }
     }
 }
