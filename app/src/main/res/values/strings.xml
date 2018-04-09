@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AZ Scanner</string>
+    <string name="welcome1">Welcome to AZ Scanner</string>
+    <string name="welcome2">The finest Scanner app you have ever seen</string>
+    <string name="pic">Capture</string>
+    <string name="roll">Camera Roll</string>
+    <string name="process">Process</string>
+    <string name="cancel">Cancel</string>
+    <string name="finish">Finish</string>
+</resources>
