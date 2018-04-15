@@ -95,12 +95,13 @@ public class Picture extends AppCompatActivity {
 
     public void Process(View v){
         Log.e("Cood", ""+x1+", "+y1+", "+x2+", "+y2+", "+x3+", "+y3+", "+x4+", "+y4);
+        Log.e("Shape", "" + imageBitmap.getHeight()+", "+imageBitmap.getWidth()+ "");
         Mat srcImg = new Mat(imageBitmap.getWidth(), imageBitmap.getHeight(),
                 CvType.CV_8UC1);
         Utils.bitmapToMat(imageBitmap, srcImg);
         Mat destImg = new Mat(srcImg.width(), srcImg.height(), srcImg.type());
-        Mat src = new MatOfPoint2f(new Point(x1, y1), new Point(x2, y2), new Point(x3, y3), new Point(x4, y4));
-        Mat dst = new MatOfPoint2f(new Point(0, 0), new Point(destImg.width() - 1, 0), new Point(destImg.width() - 1, destImg.height() - 1),
+        Mat dst = new MatOfPoint2f(new Point(x1, y1), new Point(x2, y2), new Point(x3, y3), new Point(x4, y4));
+        Mat src = new MatOfPoint2f(new Point(0, 0), new Point(destImg.width() - 1, 0), new Point(destImg.width() - 1, destImg.height() - 1),
                 new Point(0, destImg.height() - 1));
 
 

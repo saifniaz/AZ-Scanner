@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button cameraR, picture, process;
     Uri imageUri;
     ImageView image;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 }else{
                     Log.d("Image", "IT has Image");
-                    Bitmap imageBitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+                   // Bitmap imageBitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byte[] byteArray = stream.toByteArray();
                     Intent process = new Intent(view.getContext(), Picture.class);
                     process.putExtra("picture", byteArray);
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && requestCode == 1){
             imageUri = data.getData();
-            Bitmap bitmap = null;
+            //Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
             } catch (IOException e) {
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(resultCode == RESULT_OK && requestCode == 2){
             Log.i("Message", "It works");
             Bundle extras = data.getExtras();
-            Bitmap bitmap = (Bitmap) extras.get("data");
+            bitmap = (Bitmap) extras.get("data");
             image.setImageBitmap(bitmap);
         }else if(resultCode == 3 && requestCode == 3){
 
