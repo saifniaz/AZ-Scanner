@@ -28,8 +28,8 @@ public class Picture extends AppCompatActivity {
     ImageView picture;
     Bitmap imageBitmap;
     int count = 0;
-    float x1 = 166.0f, x2 = 828.0f, x3 = 204.0f, x4 = 840.0f;
-    float y1 = 140.0f, y2 = 155.0f, y3 = 976.0f, y4 = 763.0f;
+    float x1 = 10.0f, x2 = 140.0f, x3 = 140.0f, x4 = 10.0f;
+    float y1 = 10.0f, y2 = 10.0f, y3 = 190.0f, y4 = 190.0f;
 
     private static final String TAG = "OpenCv";
 
@@ -95,6 +95,7 @@ public class Picture extends AppCompatActivity {
 
     public void Process(View v){
         Log.e("Cood", ""+x1+", "+y1+", "+x2+", "+y2+", "+x3+", "+y3+", "+x4+", "+y4);
+        Log.e("Shape", "" + imageBitmap.getHeight()+", "+imageBitmap.getWidth()+ "");
         Mat srcImg = new Mat(imageBitmap.getWidth(), imageBitmap.getHeight(),
                 CvType.CV_8UC1);
         Utils.bitmapToMat(imageBitmap, srcImg);
